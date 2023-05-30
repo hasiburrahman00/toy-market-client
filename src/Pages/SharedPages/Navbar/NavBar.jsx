@@ -16,7 +16,7 @@ const NavBar = () => {
                     <div className='flex items-center space-x-6 md:justify-between md:pt-4 lg:pt-0'>
                         <p className='d-none flex items-center border-r-2 pr-4'><MdCall className='mr-2 h-6 w-6' />01518982779</p>
                         <p className='flex items-center border-r-2 pr-4'><HiMail className='mr-2 h-6 w-6' />hasiburuoda@gmail.com</p>
-                        <p className='flex items-center font-semibold text-xl'><FaUserAlt className='mr-2' /> <span className='hidden md:block'>Account</span></p>
+                        <Link to={`/myAccount`}><p className='flex items-center font-semibold text-xl'><FaUserAlt className='mr-2' /> <span className='hidden md:block'>Account</span></p></Link>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@ const NavBar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to={`/`}>Home</Link></li>
-                            <li><Link>All Toys</Link></li>
+                            <li><Link to={`/toys`}>All Toys</Link></li>
                             <li><Link>About</Link></li>
                             <li><Link>Blog</Link></li>
                         </ul>
@@ -38,7 +38,7 @@ const NavBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to={`/`}>Home</Link></li>
-                        <li><Link>All Toys</Link></li>
+                        <li><Link to={`/toys`}>All Toys</Link></li>
                         <li><Link>About</Link></li>
                         <li><Link>Blog</Link></li>
                     </ul>

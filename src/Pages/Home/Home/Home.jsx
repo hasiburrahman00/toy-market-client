@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import TreandingToys from './TreandingToys/TreandingToys';
+import TreandingToys from '../TreandingToys/TreandingToys';
 
 const Home = () => {
     return (
