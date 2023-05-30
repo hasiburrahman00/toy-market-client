@@ -11,16 +11,16 @@ const NavBar = () => {
     return (
         <div>
             <div className='bg-[#f5f5f5]'>
-                <div className='w-10/12 mx-auto flex justify-between  py-4'>
-                    <p>Free Returns and Free Shipping</p>
-                    <div className='flex items-center space-x-6'>
-                        <p className='flex items-center border-r-2 pr-4'><MdCall className='mr-2 h-6 w-6' />01518982779</p>
+                <div className='md:w-10/12 mx-auto lg:flex justify-between pb-4  md:py-4'>
+                    <p className='text-center'>Free Returns and Free Shipping</p>
+                    <div className='flex items-center space-x-6 md:justify-between md:pt-4 lg:pt-0'>
+                        <p className='d-none flex items-center border-r-2 pr-4'><MdCall className='mr-2 h-6 w-6' />01518982779</p>
                         <p className='flex items-center border-r-2 pr-4'><HiMail className='mr-2 h-6 w-6' />hasiburuoda@gmail.com</p>
-                        <p className='flex items-center font-semibold text-xl'><FaUserAlt className='mr-2' /> Account</p>
+                        <p className='flex items-center font-semibold text-xl'><FaUserAlt className='mr-2' /> <span className='hidden md:block'>Account</span></p>
                     </div>
                 </div>
             </div>
-            <div className="navbar bg-base-100 w-10/12 mx-auto">
+            <div className="navbar bg-base-100 md:w-10/12 mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
