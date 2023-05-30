@@ -14,6 +14,7 @@ const Banner = () => {
                 </div>
                 <img className='mt-4 md:mb-0' src={bannerImg2} alt="" />
             </div>
+            <img src="/images/banner-bottom.webp" alt="" />
         </div>
     );
 };
