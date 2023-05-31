@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../../public/images/logo.webp';
 import { FaUserAlt } from 'react-icons/fa';
 import { HiMail, HiOutlineShoppingBag } from 'react-icons/hi';
 import { MdCall } from 'react-icons/md';
 import { FiHeart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import AuthProvider, { AuthContext } from '../../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const NavBar = () => {
+
+    const { user, logout } = useContext(AuthContext);
+
+    // handle log out 
+    const handleLogOut = () => {
+        logout()
+            .then(result => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Log Out Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
     return (
         <div>
             <div className='bg-[#f5f5f5]'>
@@ -16,7 +37,13 @@ const NavBar = () => {
                     <div className='flex items-center space-x-6 md:justify-between md:pt-4 lg:pt-0'>
                         <p className='d-none flex items-center border-r-2 pr-4'><MdCall className='mr-2 h-6 w-6' />01518982779</p>
                         <p className='flex items-center border-r-2 pr-4'><HiMail className='mr-2 h-6 w-6' />hasiburuoda@gmail.com</p>
-                        <Link to={`/myAccount`}><p className='flex items-center font-semibold text-xl'><FaUserAlt className='mr-2' /> <span className='hidden md:block'>Account</span></p></Link>
+                        {
+                            user ?
+                                <Link to={`/myAccount`}><p className='flex items-center font-semibold text-xl tooltip tooltip-left' data-tip={user?.displayName}><img className='h-8 w-8 rounded-full mr-2 tooltip' src={user?.photoURL} alt="" /> <span className=''><button onClick={handleLogOut} className='btn btn-sm bg-[#f379a7ff] border-0 hover:bg-[#f379a7ff]'>Logout</button></span></p></Link> :
+
+                                <Link to={`/myAccount`}><p className='flex items-center font-semibold text-xl'><FaUserAlt className='mr-2' /> <span className='hidden md:block'>Account</span></p></Link>
+                        }
+
                     </div>
                 </div>
             </div>

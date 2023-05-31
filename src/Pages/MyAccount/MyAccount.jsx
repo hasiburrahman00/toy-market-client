@@ -2,16 +2,25 @@ import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const MyAccount = () => {
-    const { singInUsingGoogle, signUpUser, loginUser } = useContext(AuthContext);
+    const { singInUsingGoogle, signUpUser, loginUser, user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     // handle login using google 
     const handleLoginGoogle = () => {
         singInUsingGoogle()
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations! Log in Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate('/');
             })
             .catch(error => {
                 console.log(error.message);
@@ -27,7 +36,13 @@ const MyAccount = () => {
         loginUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations! Log in Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate('/');
             })
             .catch(error => {
                 console.log(error.message);
@@ -53,7 +68,13 @@ const MyAccount = () => {
                     photoURL: photoUrl
                 })
                     .then(() => {
-                        console.log("user name and photo url update successfully");
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Congratulations! Your Registation Successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate('/');
                     })
                     .catch(error => {
                         console.log(error.message);
@@ -81,8 +102,8 @@ const MyAccount = () => {
                     <h2 className='text-5xl font-bold mb-4 mr-12 font-mono'>Login</h2>
                     <p className='mb-8 text-[#999]'>Welcome back! Please enter your username and password to login.</p>
                     <form onSubmit={handleLoginForm} className='space-y-5'>
-                        <input type="email" placeholder='Enter Email' name='email' className="input input-bordered w-full" /><br />
-                        <input type="password" name="password" id="password" placeholder='Enter Password' className="input input-bordered w-full" /><br />
+                        <input type="email" placeholder='Enter Email' name='email' className="input input-bordered w-full" required /><br />
+                        <input type="password" name="password" id="password" placeholder='Enter Password' className="input input-bordered w-full" required /><br />
                         <input type="submit" value="Login" className='btn btn-warning w-full bg-[#f379a7] border-0 hover:border-0  hover:bg-[#95b3e0] font-bold text-white' />
                     </form>
                     <div className="divider my-8">OR</div>
@@ -94,10 +115,10 @@ const MyAccount = () => {
                     <h2 className='text-5xl font-bold mb-4 mr-12 font-mono'>Register</h2>
                     <p className='text-[#999] mb-8 w-10/12'>Create new account today to reap the benefits of a personalized shopping experience.</p>
                     <form onSubmit={handleRegisterForm} className='space-y-5 w-9/12'>
-                        <input type="text" placeholder='Enter Name' name='name' className="input input-bordered w-full" /><br />
-                        <input type="email" placeholder='Enter Email' name='email' className="input input-bordered w-full " /><br />
-                        <input type="password" name="password" id="password" placeholder='Enter Password' className="input input-bordered w-full " /><br />
-                        <input type="text" placeholder='Photo URL' name='photoUrl' className="input input-bordered w-full " /><br />
+                        <input type="text" placeholder='Enter Name' name='name' className="input input-bordered w-full" required /><br />
+                        <input type="email" placeholder='Enter Email' name='email' className="input input-bordered w-full " required /><br />
+                        <input type="password" name="password" id="password" placeholder='Enter Password' className="input input-bordered w-full " required /><br />
+                        <input type="text" placeholder='Photo URL' name='photoUrl' className="input input-bordered w-full " required /><br />
                         <input type="submit" value="Register" className='btn btn-warning w-full font-bold text-white bg-[#f379a7] border-0 hover:border-0  hover:bg-[#95b3e0]' />
                     </form>
                     <div className="divider my-8 w-2/3">OR</div>
