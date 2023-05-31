@@ -1,19 +1,25 @@
 import React from 'react';
+import { BsCart } from 'react-icons/bs';
+import { BiExpand, BiGitCompare } from 'react-icons/bi';
+import { FiHeart } from 'react-icons/fi';
 
-const ToyCard = () => {
+
+const ToyCard = ({ toy }) => {
+    const { name, img_url, price } = toy;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+            <div className="card w-96 bg-[#e4f6fe] shadow-xl mb-4 md:mb-0">
+                <figure><img src={img_url} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
-                        Shoes!
-                        <div className="badge badge-secondary">NEW</div>
+                        {name}
                     </h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p className='font-bold'>price: {price}</p>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
+                        <div className="p-2 cursor-pointer bg-[#f379a7ff] rounded-md"><BiExpand className='h-6 w-6 text-white' /></div>
+                        <div className="p-2 cursor-pointer bg-[#f379a7ff] rounded-md"><BsCart  className='h-6 w-6 text-white'/></div>
+                        <div className="p-2 cursor-pointer bg-[#f379a7ff] rounded-md"><BiGitCompare className='h-6 w-6 text-white' /></div>
+                        <div className="p-2 cursor-pointer bg-[#f379a7ff] rounded-md"><FiHeart className='h-6 w-6 text-white' /></div>
                     </div>
                 </div>
             </div>

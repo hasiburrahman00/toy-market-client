@@ -39,7 +39,7 @@ const NavBar = () => {
                         <p className='flex items-center border-r-2 pr-4'><HiMail className='mr-2 h-6 w-6' />hasiburuoda@gmail.com</p>
                         {
                             user ?
-                                <Link to={`/myAccount`}><p className='flex items-center font-semibold text-xl tooltip tooltip-left' data-tip={user?.displayName}><img className='h-8 w-8 rounded-full mr-2 tooltip' src={user?.photoURL} alt="" /> <span className=''><button onClick={handleLogOut} className='btn btn-sm bg-[#f379a7ff] border-0 hover:bg-[#f379a7ff]'>Logout</button></span></p></Link> :
+                                <Link><p className='flex items-center font-semibold text-xl tooltip tooltip-left' data-tip={user?.displayName}><img className='h-8 w-8 rounded-full mr-2 tooltip' src={user?.photoURL} alt="" /> <span className=''><button onClick={handleLogOut} className='btn btn-sm bg-[#f379a7ff] border-0 hover:bg-[#f379a7ff]'>Logout</button></span></p></Link> :
 
                                 <Link to={`/myAccount`}><p className='flex items-center font-semibold text-xl'><FaUserAlt className='mr-2' /> <span className='hidden md:block'>Account</span></p></Link>
                         }
