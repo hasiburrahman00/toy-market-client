@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const MyAccount = () => {
+    const { singInUsingGoogle } = useContext(AuthContext);
 
-    const handleLogin = event => {
-        event.preventDefault();
+    const handleLoginGoogle = () => {
+        singInUsingGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
 
@@ -29,7 +38,7 @@ const MyAccount = () => {
                         <input type="submit" value="Login" className='btn btn-warning w-full bg-[#f379a7] border-0 hover:border-0  hover:bg-[#95b3e0] font-bold text-white' />
                     </form>
                     <div className="divider my-8">OR</div>
-                    <button className='btn btn-outline w-full'><FcGoogle className='h-6 w-6 mr-2' />Sign In Using Google</button>
+                    <button onClick={handleLoginGoogle} className='btn btn-outline w-full'><FcGoogle className='h-6 w-6 mr-2' />Sign In Using Google</button>
 
                 </div>
                 {/* Registration Form */}
@@ -44,7 +53,7 @@ const MyAccount = () => {
                         <input type="submit" value="Register" className='btn btn-warning w-full font-bold text-white bg-[#f379a7] border-0 hover:border-0  hover:bg-[#95b3e0]' />
                     </form>
                     <div className="divider my-8 w-2/3">OR</div>
-                    <button className='btn btn-outline w-2/3'><FcGoogle className='h-6 w-6 mr-2' />Sign Up Using Google</button>
+                    <button onClick={handleLoginGoogle} className='btn btn-outline w-2/3'><FcGoogle className='h-6 w-6 mr-2' />Sign Up Using Google</button>
 
                 </div>
 
