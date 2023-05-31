@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const MyAccount = () => {
     const { singInUsingGoogle, signUpUser, loginUser } = useContext(AuthContext);
@@ -46,6 +47,17 @@ const MyAccount = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                // update user profile : set username and photo url
+                updateProfile(user, {
+                    displayName: name,
+                    photoURL: photoUrl
+                })
+                    .then(() => {
+                        console.log("user name and photo url update successfully");
+                    })
+                    .catch(error => {
+                        console.log(error.message);
+                    })
             })
             .catch(error => {
                 console.log(error.message);
