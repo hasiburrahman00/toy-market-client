@@ -3,7 +3,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const MyAccount = () => {
-    const { singInUsingGoogle, signUpUser } = useContext(AuthContext);
+    const { singInUsingGoogle, signUpUser, loginUser } = useContext(AuthContext);
 
     // handle login using google 
     const handleLoginGoogle = () => {
@@ -23,7 +23,14 @@ const MyAccount = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
+        loginUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
     // handle register
