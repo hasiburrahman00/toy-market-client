@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import TreandingToys from '../TreandingToys/TreandingToys';
 import ProductGallery from '../ProductGallery/ProductGallery';
 import OfferBanner from '../OfferBanner/OfferBanner';
+import Discount from '../Discount/Discount';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <TreandingToys></TreandingToys>
             <ProductGallery></ProductGallery>
             <OfferBanner></OfferBanner>
+            <Discount></Discount>
         </div>
     );
 };
