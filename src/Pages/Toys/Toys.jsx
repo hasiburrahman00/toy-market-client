@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ToyCard from '../../Components/ToyCard/ToyCard';
+import Aos from 'aos';
 
 const Toys = () => {
 
@@ -12,6 +13,12 @@ const Toys = () => {
     }, [])
 
 
+    useEffect(() => {
+        Aos.init({
+            duration: 100
+        });
+    }, [])
+
     return (
         <div>
             <div className='bg-[#95b3e0] text-center'>
@@ -21,6 +28,7 @@ const Toys = () => {
             <div className='md:grid grid-cols-3 gap-12 w-10/12 mx-auto my-20'>
                 {
                     toys.map(toy => <ToyCard
+                        data-aos = "fade-right"
                         key={toy._id}
                         toy={toy}
                     />)

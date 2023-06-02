@@ -4,7 +4,7 @@ const Discount = () => {
     return (
         <div className='w-10/12 mx-auto md:flex gap-20 py-20'>
             <div className="card w-full bg-[#fcdceaff] shadow-xl image-full">
-                <figure><img src="/public/images/4.webp" alt="Shoes" /></figure>
+                <figure><img src="/images/4.webp" alt="" /></figure>
                 <div className="card-body text-right">
                     <h2 className="font-bold font-mono text-4xl">Collection</h2>
                     <p className='font-bold font-mono text-2xl'>Flat <span className='text-3xl'>  20% </span>Off </p>
@@ -14,7 +14,7 @@ const Discount = () => {
                 </div>
             </div>
             <div className="card w-full bg-[#fcdceaff] shadow-xl image-full">
-                <figure><img src="/public/images/5.webp" alt="Shoes" /></figure>
+                <figure><img src="/images/5.webp" alt="" /></figure>
                 <div className="card-body text-right">
                     <h2 className="font-bold font-mono text-4xl">Collection</h2>
                     <p className='font-bold font-mono text-2xl'>Flat <span className='text-3xl'>  60% </span>Off </p>
