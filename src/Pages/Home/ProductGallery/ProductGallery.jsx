@@ -4,7 +4,7 @@ const ProductGallery = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/toys`
+        const url = `https://toy-market-sever.vercel.app/toys`
         fetch(url)
             .then(res => res.json())
             .then(data => {

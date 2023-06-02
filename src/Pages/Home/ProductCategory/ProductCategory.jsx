@@ -10,7 +10,7 @@ const ProductCategory = () => {
     const [teddy, setTeddy] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/toys`
+        const url = `https://toy-market-sever.vercel.app/toys`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -27,7 +27,7 @@ const ProductCategory = () => {
     return (
         <div>
             <div className='mt-20'>
-                <div className='w-1/2 mx-auto text-center mb-12'>
+                <div className='w-10/12 md:w-1/2 mx-auto text-center mb-12'>
                     <h2 className='font-mono text-3xl mb-4 font-bold'>Trending Product</h2>
                     <p>The most popular and sought-after items of the moment, highlighting the latest consumer preferences and interests. Stay ahead of the curve by exploring this curated collection of products.</p>
                 </div>
@@ -40,7 +40,7 @@ const ProductCategory = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className='md:grid grid-cols-3 gap-12'>
+                    <div className='md:grid grid-cols-3 gap-12 items-center'>
                         {
                             alltoys.map(item => <ToyCard
                                 key={item._id}

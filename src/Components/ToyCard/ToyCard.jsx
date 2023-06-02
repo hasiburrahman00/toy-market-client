@@ -13,7 +13,7 @@ const ToyCard = ({ toy }) => {
 
     return (
         <div>
-            <div className="card w-96 bg-[#e4f6fe] shadow-xl mb-4 md:mb-0">
+            <div className="card w-96 mx-auto bg-[#e4f6fe] shadow-xl mb-4 md:mb-0">
                 <figure><img src={img_url} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">

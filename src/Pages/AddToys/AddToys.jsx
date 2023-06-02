@@ -22,7 +22,7 @@ const AddToys = () => {
         const toyInfo = { sellerName, sellerEmail, name, img_url, category, price, quantity, ratting, description };
         console.log(toyInfo);
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-market-sever.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
