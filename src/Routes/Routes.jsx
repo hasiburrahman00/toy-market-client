@@ -8,18 +8,19 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AddToys from "../Pages/AddToys/AddToys";
 import MyToys from "../Pages/MyToys/MyToys";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
-        path: '/', 
+        path: '/',
         element: <Main></Main>,
         children: [
             {
-                path: '/', 
+                path: '/',
                 element: <Home></Home>
             },
             {
-                path:'/toys', 
+                path: '/toys',
                 element: <Toys></Toys>,
                 loader: () => fetch(`http://localhost:5000/toys`)
             },
@@ -29,22 +30,22 @@ const router = createBrowserRouter([
             },
             {
                 path: '/toys/:id',
-                element: <ToyDetails></ToyDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+                element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
             },
             {
-                path: '/addToys', 
+                path: '/addToys',
                 element: <AddToys></AddToys>
             },
             {
                 path: '/mytoys',
                 element: <MyToys></MyToys>,
-                
+
             },
             {
                 path: '/mytoys/:id',
                 element: <UpdateToy></UpdateToy>,
-                loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
             },
             {
                 path: '*',

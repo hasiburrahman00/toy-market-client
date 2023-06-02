@@ -3,11 +3,14 @@ import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const MyAccount = () => {
     const { singInUsingGoogle, signUpUser, loginUser, user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
+    console.log(from);
 
     // handle login using google 
     const handleLoginGoogle = () => {
@@ -20,7 +23,7 @@ const MyAccount = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                navigate('/');
+                navigate(from);
             })
             .catch(error => {
                 console.log(error.message);
@@ -42,7 +45,7 @@ const MyAccount = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                navigate('/');
+                navigate(from);
             })
             .catch(error => {
                 console.log(error.message);
@@ -74,7 +77,7 @@ const MyAccount = () => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        navigate('/');
+                        navigate(from);
                     })
                     .catch(error => {
                         console.log(error.message);
