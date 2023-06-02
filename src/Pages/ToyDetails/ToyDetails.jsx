@@ -20,7 +20,7 @@ const ToyDetails = () => {
                     <div className='space-y-3'>
                         <p className='font-bold text-l '>Category: {category}</p>
                         <p><span className='font-bold'>Details :</span>  {description}</p>
-                        {features.map(item => <li> - {item}</li>)}
+                        {features?.map(item => <li> - {item}</li>)}
                         <h5 className='font-bold text-2xl'>Price: {price}</h5>
                     </div>
                     <div className="card-actions justify-end">
