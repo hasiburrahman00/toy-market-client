@@ -3,7 +3,6 @@ import { BsTrash } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 const MyToysCard = ({ mytoy, handleDelete }) => {
-    console.log(mytoy)
     const { _id, sellerName, name, img_url, price, sellerEmail, category, quantity } = mytoy;
 
     return (

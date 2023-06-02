@@ -39,8 +39,16 @@ const MyToys = () => {
             })
     }
 
+    // sort toys depent on price : 
+    console.log(myToys);
+    const sortToys = () => {
+        const sorted = [...myToys].sort((a, b) => parseInt(a.price) - parseInt(b.price));
+        setMytoys(sorted);
+    }
+
     return (
         <div className='w-10/12 mx-auto my-12'>
+            
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -53,7 +61,7 @@ const MyToys = () => {
                             <th>Name & Email</th>
                             <th>Toy</th>
                             <th>Price</th>
-                            <th></th>
+                            <th><button onClick={sortToys} className='btn btn-warning btn-sm'>Sort by Price </button></th>
                         </tr>
                     </thead>
                     <tbody>
